@@ -1,6 +1,7 @@
 import huaweilogobase from "../assets/LOGO 1.png"
 import checkIcon from "../assets/checkIcon.png"
 import tableImage from "../assets/tablet_image.png"
+import { RoundedCard } from "./RoundedCard"
 export const LPNavBar = () => {
     return(
         <div>
@@ -38,16 +39,31 @@ export const LPNavBar = () => {
                 <button className="text-2xl font-bold text-white bg-gradient-to-l from-red-600 to-red-400 uppercase py-4 px-10 rounded-2xl hover:bg-gradient-to-r transition-all duration-150">Start Now</button>
             </div>
 
-            <div className="flex flex-row justify-around mx-40 gap-20 ">
-                <div className="flex flex-col gap-8 justify-center w-[30rem] font-semibold">
-                    <h1 className="text-4xl flex"><p className="bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300">ABOUT</p>, Huawei Base</h1>
-                    <p className="text-lg">Huwaei Base is a provisioned backend service that makes it easy to build applications through one interface. </p>
+            <div className="flex flex-row justify-around px-40 gap-20 border-b-2">
+                <div className="flex flex-col gap-8 justify-center w-[30rem] ">
+                    <h1 className="text-4xl flex font-semibold"><p className="bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-semibold">ABOUT</p>, Huawei Base</h1>
+                    <p className="text-3xl">Huwaei Base is a provisioned backend service that makes it easy to build applications through one interface. </p>
                     <button className="text-xl font-bold text-white bg-gradient-to-l from-red-600 to-red-400 uppercase py-4 px-10 rounded-2xl
                      hover:bg-gradient-to-r transition-all duration-150 w-[60%]">Start Project</button>
                 </div>
                 <div>
                     <img src={tableImage}></img>
                 </div>
+            </div>
+
+            <div>
+                <div className="flex flex-col text-center gap-10 my-10  ">
+                    <h1 className="uppercase text-5xl bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold">developers</h1>
+                    <span className="text-3xl">We are students of systems development technician at <br></br>SENAI Roberto Mange school and technology college.</span>
+                    <div className="flex flex-row items-center justify-center gap-12">
+
+                        <RoundedCard name="Tayssa Antoniasse" link_to="https://github.com/tayantony" person_img="https://avatars.githubusercontent.com/u/98670493?v=4"/>
+                        <RoundedCard name="Elizeu Magalhães" link_to="https://github.com/elizeumagalhaes" person_img="https://avatars.githubusercontent.com/u/98928629?v=4"/>
+                        <RoundedCard name="Igor Oliveira" link_to="https://github.com/iguoliveira" person_img="https://avatars.githubusercontent.com/u/57506257?v=4"/>
+                        <RoundedCard name="Vinicius Prates" link_to="https://github.com/vinicius-prates" person_img="https://avatars.githubusercontent.com/u/89698942?v=4"/>
+                        <RoundedCard name="Viktor Marinho" link_to="https://github.com/viktormarinho" person_img="https://avatars.githubusercontent.com/u/56888067?v=4"/>
+                    </div>
+                </div>    
             </div>
         </div>
     )
