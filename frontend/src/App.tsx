@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import './App.css'
-import { LandingPage } from './Pages/LandingPage'
+import {
+  createBrowserRouter,
+} from "react-router-dom";
+import './main.css'
+import { LandingPage } from "./Pages/LandingPage";
 
-function App() {
-
-  return (
-    <div className="App">
-      <LandingPage/>
-    </div>
-  )
-}
-
-export default App
+export const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />
+  },
+  {
+    path: "/panel/table",
+    element: <LandingPage />
+  }
+])
