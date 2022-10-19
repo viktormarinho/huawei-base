@@ -6,8 +6,7 @@ export const MyRoutes = () => {
     return(
         <Routes>
             <Route path="/" element={<App/>}/>
-            <Route path="/panel/tables" element={<DataBaseTables/>}/>
-                        
+            <Route path="/panel/tables" element={<DataBaseTables/>}/>  
         </Routes>
         
 

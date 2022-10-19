@@ -3,7 +3,7 @@ import { BlackButton } from "../Components/BlackButton"
 import { DataBase } from "../Components/PanelComponents/DataBase"
 import { Functions } from "../Components/PanelComponents/Functions"
 import { Storage } from "../Components/PanelComponents/Storage"
-import { TablesNavBar } from "../Components/TablesNavBar"
+import { Navbar } from "../Components/TablesNavBar"
 import DataBaseIcon from "../assets/DataBaseIcon.png"
 import StorageIcon from "../assets/StorageIcon.png"
 import FunctionsIcon from "../assets/FunctionsIcon.png"
@@ -19,9 +19,9 @@ export const DataBaseTables = () => {
     
     return(
         <div className="max-h-screen">
-            <TablesNavBar>
+            <Navbar isAdmin={true}>
                 {<BlackButton text="Your Projects"/>}
-            </TablesNavBar>
+            </Navbar>
             <div className="flex flex-row">
 
                 <div className="bg-[#2d2d2d] flex flex-col gap-10 px-6 py-10 items-center h-[91.1vh] border-r-2 border-gray-500">

@@ -6,3 +6,8 @@
 
   font-family: 'Poppins', sans-serif;
 }
+
+::selection{
+  background-color: #F66666;
+
+}
