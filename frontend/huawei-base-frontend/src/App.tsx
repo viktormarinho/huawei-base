@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import { LandingPage } from './Pages/LandingPage'
 
 function App() {
 
   return (
     <div className="App">
-      <h1 className="text-lg text-blue-600">blau</h1>
+      <LandingPage/>
     </div>
   )
 }
