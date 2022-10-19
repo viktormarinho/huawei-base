@@ -1,38 +1,34 @@
-import express from "express";
 import bodyParser from 'body-parser';
-import sqlite3 from "sqlite3";
-
-type Field = {
-    name: string
-    type: string
-    maxLength?: number
-}
-
-type TableOptions = {
-    name: string
-    fields: Field[]
-}
+import express from 'express';
+import { Db } from './config';
+import tablesRouter from './routers/tables';
+import storageRouter from './routers/storage';
+import functionsRouter from './routers/functions';
 
 const app = express();
-const db = new sqlite3.Database('bimbos.sqlite');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/tables', tablesRouter);
+app.use('/storage', storageRouter);
+app.use('/functions', functionsRouter);
 
-app.post('/create-table', (req, res) => {
-    const { name, fields }: TableOptions = req.body;
+Db.serialize(() => {
+    Db.run(
+        `CREATE TABLE IF NOT EXISTS __tables (
+            name TEXT,
+            rowlist TEXT
+        )`
+    )
+})
 
-    db.serialize(() => {
-        db.run(
-            `CREATE TABLE ${name} (${fields.map((field) => (
-                `${field.name} ${field.type}` +
-                `${field.maxLength ? `(${field.maxLength})` : ''},`
-            )
-            ).join('').slice(0, -1)})`
-        )
-    })
-
-    res.json({ msg: 'Created table successfully.' })
+Db.serialize(() => {
+    Db.run(
+        `CREATE TABLE IF NOT EXISTS __functions (
+            name TEXT,
+            func TEXT
+        )`
+    )
 })
 
 async function run() {
