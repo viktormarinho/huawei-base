@@ -11,20 +11,20 @@ export class Methods extends HuaweiBaseClient {
         return await this.invoke(`${this.url}/list-all/${this.name}`)
     }
 
-    async find(data: any): Promise<any> {
-        return await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(data))
+    async find(matchQuery: any): Promise<any> {
+        return await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(matchQuery))
     }
 
-    async findOne(data: any): Promise<any> {
-        const query = await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(data))
+    async findOne(matchQuery: any): Promise<any> {
+        const query = await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(matchQuery))
         return query[0]
     }
 
-    async delete(data: any): Promise<any> {
-        return await this.invoke(`${this.url}/delete/${this.name}`, Helper.convertToMatchQuery(data), "DELETE")
+    delete(matchQuery: any): Promise<any> {
+        return this.invoke(`${this.url}/delete-column/${this.name}`, Helper.convertToMatchQuery(matchQuery), "DELETE")
     }
 
-    deleteColumn(data: any): Promise<any> {
-        return this.invoke(`${this.url}/delete-column/${this.name}`, Helper.convertToMatchQuery(data), "DELETE")
+    update(updateData: any, matchQuery: any): Promise<any> {
+        return this.invoke(`${this.url}/delete-column/${this.name}`, [updateData, Helper.convertToMatchQuery(matchQuery)], "PATCH")
     }
 }
