@@ -52,7 +52,7 @@ export const LPNavBar = () => {
             </div>
 
             <div>
-                <div className="flex flex-col text-center gap-10 my-10  ">
+                <div className="flex flex-col text-center gap-10 my-40">
                     <h1 className="uppercase text-5xl bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold">developers</h1>
                     <span className="text-3xl">We are students of systems development technician at <br></br>SENAI Roberto Mange school and technology college.</span>
                     <div className="flex flex-row items-center justify-center gap-12">
@@ -61,7 +61,7 @@ export const LPNavBar = () => {
                         <RoundedCard name="Elizeu Magalhães" link_to="https://github.com/elizeumagalhaes" person_img="https://avatars.githubusercontent.com/u/98928629?v=4"/>
                         <RoundedCard name="Igor Oliveira" link_to="https://github.com/iguoliveira" person_img="https://avatars.githubusercontent.com/u/57506257?v=4"/>
                         <RoundedCard name="Vinicius Prates" link_to="https://github.com/vinicius-prates" person_img="https://avatars.githubusercontent.com/u/89698942?v=4"/>
-                        <RoundedCard name="Viktor Marinho" link_to="https://github.com/viktormarinho" person_img="https://avatars.githubusercontent.com/u/56888067?v=4"/>
+                        <RoundedCard name="Viktor Marinho" link_to="https://github.com/viktormarinho" person_img="https://avatars.githubusercontent.com/u/56888067?v=4"     />
                     </div>
                 </div>    
             </div>
