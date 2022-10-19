@@ -20,11 +20,11 @@ export class Methods extends HuaweiBaseClient {
         return query[0]
     }
 
-    delete(matchQuery: any): Promise<any> {
-        return this.invoke(`${this.url}/delete-column/${this.name}`, Helper.convertToMatchQuery(matchQuery), "DELETE")
+    async elete(matchQuery: any): Promise<any> {
+        return await this.invoke(`${this.url}/delete-column/${this.name}`, Helper.convertToMatchQuery(matchQuery), "DELETE")
     }
 
-    update(updateData: any, matchQuery: any): Promise<any> {
-        return this.invoke(`${this.url}/delete-column/${this.name}`, [updateData, Helper.convertToMatchQuery(matchQuery)], "PATCH")
+    async update(updateData: any, matchQuery: any): Promise<any> {
+        return await this.invoke(`${this.url}/delete-column/${this.name}`, [updateData, Helper.convertToMatchQuery(matchQuery)], "PATCH")
     }
 }
