@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "microbundle": "^0.15.1"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^3.1.0"
   }
 }
