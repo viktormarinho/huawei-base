@@ -1,15 +1,15 @@
 type Config = {
-    baseUrl: string
+    url: string
 }
 
 export abstract class Base {
-    private baseUrl: string
+    private url: string
     constructor(config: Config) {
-        this.baseUrl = config.baseUrl
+        this.url = config.url
     }
 
     protected invoke<T>(endpoint: string, options?: RequestInit): Promise<T> {
-        const url = `${this.baseUrl}${endpoint}`
+        const url = `${this.url}${endpoint}`
 
         const headers = {
             "Content-Type": "application/json",
