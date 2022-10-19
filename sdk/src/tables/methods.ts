@@ -11,7 +11,29 @@ export class Methods extends HuaweiBaseClient {
         return this.invoke(`${this.url}/list-all/${this.name}`)
     }
 
-    getOne(column: string, value: string): Promise<any> {
-        return this.invoke(`${this.url}/get-one/${this.name}`)
+    find(data: any): Promise<any> {
+
+        function convertToMatchQuery(obg: any) {
+            for (const k in data) {
+                return {
+                    "column": k,
+                    "value": data[k]
+                }
+            }
+        }
+
+        return this.invoke(`${this.url}/get-one/${this.name}`, convertToMatchQuery)
+    }
+
+    findOne(column: string, value: string): Promise<any> {
+        return this.invoke(`${this.url}/get-one/${this.name}`, { column, value })
+    }
+
+    delete(column: string, value: string): Promise<any> {
+        return this.invoke(`${this.url}/delete/${this.name}`, { column, value }, "DELETE")
+    }
+
+    deleteColumn(column: string, value: string): Promise<any> {
+        return this.invoke(`${this.url}/delete-column/${this.name}/column:${column}?value:${value}`)
     }
 }

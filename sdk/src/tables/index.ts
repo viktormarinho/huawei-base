@@ -1,21 +1,27 @@
 import { Methods } from "./methods";
 
+interface Body {
+    column: string,
+    value: any,
+}
+
 export abstract class HuaweiBaseClient {
     protected url: string
     constructor(url: string) {
         this.url = url
     }
 
-    protected invoke<T>(endpoint: string, options?: RequestInit): Promise<T> {
+    protected invoke<T>(endpoint: string, body?: any, method?: string): Promise<T> {
         const url = `${this.url}${endpoint}`
 
         const headers = {
             "Content-Type": "application/json",
         }
 
-        const config = {
-            ...options,
-            headers
+        const config: RequestInit = {
+            headers: headers,
+            method: method || "GET",
+            body: JSON.stringify(body || {})
         }
 
         return fetch(url, config).then(res => {
