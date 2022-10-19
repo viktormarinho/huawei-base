@@ -1,5 +1,5 @@
 import { HuaweiBaseClient } from "./index"
-
+import { Helper } from "./helper"
 export class Methods extends HuaweiBaseClient {
     private name: string
     constructor(name: string, url: string) {
@@ -7,33 +7,24 @@ export class Methods extends HuaweiBaseClient {
         this.name = name
     }
 
-    list(): Promise<any> {
-        return this.invoke(`${this.url}/list-all/${this.name}`)
+    async list(): Promise<any> {
+        return await this.invoke(`${this.url}/list-all/${this.name}`)
     }
 
-    find(data: any): Promise<any> {
-
-        function convertToMatchQuery(obg: any) {
-            for (const k in data) {
-                return {
-                    "column": k,
-                    "value": data[k]
-                }
-            }
-        }
-
-        return this.invoke(`${this.url}/get-one/${this.name}`, convertToMatchQuery)
+    async find(data: any): Promise<any> {
+        return await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(data))
     }
 
-    findOne(column: string, value: string): Promise<any> {
-        return this.invoke(`${this.url}/get-one/${this.name}`, { column, value })
+    async findOne(data: any): Promise<any> {
+        const query = await this.invoke(`${this.url}/get-one/${this.name}`, Helper.convertToMatchQuery(data))
+        return query[0]
     }
 
-    delete(column: string, value: string): Promise<any> {
-        return this.invoke(`${this.url}/delete/${this.name}`, { column, value }, "DELETE")
+    async delete(data: any): Promise<any> {
+        return await this.invoke(`${this.url}/delete/${this.name}`, Helper.convertToMatchQuery(data), "DELETE")
     }
 
-    deleteColumn(column: string, value: string): Promise<any> {
-        return this.invoke(`${this.url}/delete-column/${this.name}/column:${column}?value:${value}`)
+    deleteColumn(data: any): Promise<any> {
+        return this.invoke(`${this.url}/delete-column/${this.name}`, Helper.convertToMatchQuery(data), "DELETE")
     }
 }

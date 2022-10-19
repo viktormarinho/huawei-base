@@ -1,17 +1,12 @@
 import { Methods } from "./methods";
 
-interface Body {
-    column: string,
-    value: any,
-}
-
 export abstract class HuaweiBaseClient {
     protected url: string
     constructor(url: string) {
         this.url = url
     }
 
-    protected invoke<T>(endpoint: string, body?: any, method?: string): Promise<T> {
+    protected invoke(endpoint: string, body?: any, method?: string): Promise<any> {
         const url = `${this.url}${endpoint}`
 
         const headers = {
