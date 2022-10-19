@@ -1,10 +1,13 @@
-import huaweilogobase from "../assets/LOGO 1.png";
+import HuaweiBaseLogo from "../assets/LOGO 1.png";
 interface NavBarProps {
   children?: JSX.Element;
   isAdmin: boolean;
+  about?: string
+  devs?: string
+  contact?: string
 }
 
-export const Navbar = ({ children, isAdmin }: NavBarProps) => {
+export const Navbar = ({ about, devs, contact, children, isAdmin }: NavBarProps) => {
   return (
     <div
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
@@ -12,7 +15,7 @@ export const Navbar = ({ children, isAdmin }: NavBarProps) => {
     >
       <div>
         <a href="/">
-          <img src={huaweilogobase} />
+          <img src={HuaweiBaseLogo} />
         </a>
       </div>
 
@@ -22,9 +25,9 @@ export const Navbar = ({ children, isAdmin }: NavBarProps) => {
         </div>
       ) : (
         <div className="flex flex-row gap-24">
-          <a>About</a>
-          <a>Developers</a>
-          <a>Contact</a>
+          <a href={about} className="cursor-pointer">About</a>
+          <a href={devs} className="cursor-pointer">Developers</a>
+          <a href={contact} className="cursor-pointer">Contact</a>
           <a>Login</a>
         </div>
       )}

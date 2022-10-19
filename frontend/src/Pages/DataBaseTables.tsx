@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { BlackButton } from "../components/BlackButton"
 import { DataBase } from "../components/panel/DataBase"
 import { Functions } from "../components/panel/Functions"
 import { Storage } from "../components/panel/Storage"
