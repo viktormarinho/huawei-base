@@ -1,5 +1,5 @@
 export const Storage = () => {
-    return(
+    return (
         <div>
             Storage option
         </div>

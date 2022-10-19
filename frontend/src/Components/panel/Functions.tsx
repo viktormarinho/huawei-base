@@ -1,7 +1,7 @@
 export const Functions = () => {
-    return(
+    return (
         <div>
-            funcitons 
+            funcitons
         </div>
     )
 }
