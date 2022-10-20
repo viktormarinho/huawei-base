@@ -120,9 +120,35 @@ export const LandingPage = () => {
         <div className="flex flex-col gap-4">
           <div className="text-4xl font-semibold"><span className="bg-clip-text text-transparent bg-gradient-to-t
            from-red-600 to-red-300 font-semibold select-none">CONTACT</span> US</div>
-          <p className="text-3xl">Something wrong? Contact us in the forum.</p>
+          <p className="text-3xl">Something wrong? Contact us.</p>
         </div>
-        <LandingForm />
+        <div className="flex space-x-40">
+          <div className="flex flex-col flex-wrap justify-center space-y-10">
+
+            <div className="flex space-x-8 items-center justify-start">
+              <svg width="52" height="39" viewBox="0 0 52 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M51.0148 12.8781C51.4109 12.5633 52 12.8578 52 13.3555V34.125C52 36.8164 49.8164 39 47.125 39H4.875C2.18359 39 0 36.8164 0 34.125V13.3656C0 12.8578 0.578906 12.5734 0.985156 12.8883C3.26016 14.6555 6.27656 16.9 16.6359 24.4258C18.7789 25.9898 22.3945 29.2805 26 29.2602C29.6258 29.2906 33.3125 25.9289 35.3742 24.4258C45.7336 16.9 48.7398 14.6453 51.0148 12.8781ZM26 26C28.3562 26.0406 31.7484 23.0344 33.4547 21.7953C46.932 12.0148 47.9578 11.1617 51.0656 8.72422C51.6547 8.26719 52 7.55625 52 6.80469V4.875C52 2.18359 49.8164 0 47.125 0H4.875C2.18359 0 0 2.18359 0 4.875V6.80469C0 7.55625 0.345312 8.25703 0.934375 8.72422C4.04219 11.1516 5.06797 12.0148 18.5453 21.7953C20.2516 23.0344 23.6437 26.0406 26 26Z" fill="#FF0000" />
+              </svg>
+              <span className="flex items-start">huaweibase@email.com</span>
+            </div>
+
+            <div className="flex space-x-8 items-center justify-start">
+              <svg width="37" height="50" viewBox="0 0 37 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5987 48.338C2.59867 28.0421 0 25.9591 0 18.5C0 8.2827 8.2827 0 18.5 0C28.7173 0 37 8.2827 37 18.5C37 25.9591 34.4013 28.0421 20.4013 48.338C19.4825 49.6652 17.5174 49.6651 16.5987 48.338ZM18.5 26.2083C22.7572 26.2083 26.2083 22.7572 26.2083 18.5C26.2083 14.2428 22.7572 10.7917 18.5 10.7917C14.2428 10.7917 10.7917 14.2428 10.7917 18.5C10.7917 22.7572 14.2428 26.2083 18.5 26.2083Z" fill="#FF0000" />
+              </svg>
+              <div className="flex flex-col justify-center items-start text-start"><span>Rua Pastor Cicero Canuto de Lima, 71,</span><span>São Bernardo - Vila Rialto, Campinas</span><span>- SP, 13036-210</span></div>
+            </div>
+
+            <div className="flex space-x-8 items-center justify-start">
+              <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M49.5456 36.0384L38.3891 31.2571C37.9125 31.054 37.3829 31.0112 36.8798 31.1351C36.3768 31.2591 35.9277 31.5431 35.6 31.9444L30.6593 37.9808C22.9053 34.3249 16.6651 28.0847 13.0092 20.3307L19.0457 15.39C19.4478 15.063 19.7324 14.6138 19.8564 14.1106C19.9804 13.6073 19.9371 13.0773 19.733 12.6009L14.9516 1.44445C14.7276 0.930868 14.3314 0.511542 13.8314 0.258782C13.3313 0.00602164 12.7587 -0.0643293 12.2123 0.0598596L1.85277 2.45053C1.32599 2.57217 0.856003 2.86877 0.519507 3.29193C0.183011 3.71508 -0.000121347 4.23979 6.03266e-08 4.78043C6.03266e-08 30.3307 20.7092 51 46.2196 51C46.7604 51.0003 47.2853 50.8173 47.7087 50.4808C48.132 50.1443 48.4288 49.6742 48.5505 49.1472L50.9411 38.7877C51.0645 38.2386 50.9927 37.6638 50.738 37.162C50.4833 36.6602 50.0616 36.2629 49.5456 36.0384Z" fill="#FF0000" />
+              </svg>
+              <span>{"(19)"} 99999-9999</span>
+            </div>
+
+          </div>
+          <LandingForm />
+        </div>
       </div>
 
       <Footer isLogin={false} />
