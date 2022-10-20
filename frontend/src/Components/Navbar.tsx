@@ -36,10 +36,10 @@ export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, 
               ?
               (
                 <>
-                  <a href={home} className="cursor-pointer">Home</a>
-                  <a href={about} className="cursor-pointer">About</a>
-                  <a href={devs} className="cursor-pointer">Developers</a>
-                  <a href={contact} className="cursor-pointer">Contact</a>
+                  <a href={home} className="navbar-links">Home</a>
+                  <a href={about} className="navbar-links">About</a>
+                  <a href={devs} className="navbar-links">Developers</a>
+                  <a href={contact} className="navbar-links">Contact</a>
                 </>
               )
               :

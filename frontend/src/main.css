@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -15,5 +19,24 @@
 @layer components {
   .red-gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold select-none;
+  }
+
+  .bottom-line-animation {
+    content: "";
+    position: absolute;
+    background-color: #f66666;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+  }
+
+  .bottom-line-animation-hover {
+    width: 100%;
+  }
+
+  .navbar-links {
+    @apply cursor-pointer relative hover:text-red-600 after:bottom-line-animation hover:after:bottom-line-animation-hover;
   }
 }
