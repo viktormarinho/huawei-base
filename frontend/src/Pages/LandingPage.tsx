@@ -8,10 +8,10 @@ import { Footer } from "../components/Footer";
 
 export const LandingPage = () => {
   return (
-    <section className="h-screen">
+    <section>
       <Navbar isAdmin={false} about={"#about"} devs={"#devs"} contact={"#contact"} />
 
-      <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2 ">
+      <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2">
         <h1 className="text-6xl text-center  select-none">
           <div>
             <span className="bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold">
@@ -120,7 +120,7 @@ export const LandingPage = () => {
         <LandingForm />
       </div>
 
-      <Footer />
+      <Footer isLogin={false} />
     </section>
   );
 };

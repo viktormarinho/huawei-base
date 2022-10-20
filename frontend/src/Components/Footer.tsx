@@ -1,9 +1,10 @@
 interface FooterProps {
     isLogin?: boolean
 }
+
 export const Footer = ({ isLogin = false }: FooterProps) => {
     return (
-        <div className={`flex flex-row ${isLogin ? ("justify-around") : ("justify-between")} items-center py-6 px-10 border-t-2 absolute bottom-0 w-screen`}>
+        <div className={`flex flex-row ${isLogin ? ("justify-around") : ("justify-between")} items-center py-6 px-10 border-t-2 ${isLogin && "absolute bottom-0 w-screen"}`}>
             {
                 isLogin
                     ?
