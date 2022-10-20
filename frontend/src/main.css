@@ -1,13 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 ::selection {
-  background-color: #F66666;
+  background-color: #f66666;
+}
+
+@layer components {
+  .red-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold select-none;
+  }
 }

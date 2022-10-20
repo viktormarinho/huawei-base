@@ -15,7 +15,7 @@ export const Navbar = ({ about, devs, contact, children, isAdmin = false, isFixe
   return (
     <nav
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
-        focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30`}
+        focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30 absolute top-0`}
     >
       <div>
         <a href="/">

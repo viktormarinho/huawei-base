@@ -5,6 +5,7 @@ import { Function } from "../components/landingPage/Functions";
 import { Button } from "../components/Button";
 import { LandingForm } from "../components/landingPage/LandingForm";
 import { Footer } from "../components/Footer";
+import { DocButton } from "../components/DocButton";
 
 export const LandingPage = () => {
   return (
@@ -14,7 +15,7 @@ export const LandingPage = () => {
       <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2">
         <h1 className="text-6xl text-center  select-none">
           <div>
-            <span className="bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold">
+            <span className="red-gradient-text">
               Huawei Base
             </span>
             <span>, the new way</span>
@@ -49,19 +50,14 @@ export const LandingPage = () => {
       <div className="flex flex-row justify-around px-40 gap-20 border-b-2" id="about">
         <div className="flex flex-col gap-8 justify-center w-[30rem] ">
           <div className="text-3xl flex items-center font-semibold gap-[8px]">
-            <span className="text-4xl bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-semibold select-none">
+            <span className="text-4xl red-gradient-text">
               ABOUT
             </span>Huawei Base</div>
           <p className="text-3xl">
             Huawei Base is a provisioned backend service that makes it easy to
             build applications through one interface.
           </p>
-          <a href="google.com" target={"blank"} className="flex items-center space-x-3 text-xl font-bold text-white bg-gradient-to-l select-none from-red-600 to-red-400 py-3 px-10 rounded-2xl hover:bg-gradient-to-r w-[400px]">
-            <svg width="34" height="26" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M31.1367 0.0031185C27.9898 0.181708 21.7351 0.831753 17.8739 3.19534C17.6075 3.35843 17.4565 3.64842 17.4565 3.95162V24.8467C17.4565 25.5099 18.1817 25.9291 18.7933 25.6213C22.7659 23.6218 28.5112 23.0763 31.352 22.927C32.3219 22.8758 33.0759 22.0983 33.0759 21.1663V1.76605C33.0765 0.749062 32.1944 -0.0566029 31.1367 0.0031185ZM15.202 3.19534C11.3413 0.831753 5.08666 0.182283 1.9398 0.0031185C0.882039 -0.0566029 0 0.749062 0 1.76605V21.1669C0 22.0995 0.753983 22.877 1.72388 22.9275C4.56582 23.0768 10.314 23.6229 14.2866 25.6236C14.8965 25.9308 15.6194 25.5122 15.6194 24.8507V3.94129C15.6194 3.63751 15.469 3.359 15.202 3.19534Z" fill="white" />
-            </svg>
-            <span>Read the documentation</span>
-          </a>
+          <DocButton />
         </div>
         <div>
           <img src={tableImage} />
@@ -69,7 +65,7 @@ export const LandingPage = () => {
       </div>
 
       <div className="flex flex-col text-center gap-10 py-24 border-b-2" id="devs">
-        <h1 className="uppercase text-4xl bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold  select-none">
+        <h1 className="uppercase text-4xl red-gradient-text">
           developers
         </h1>
         <div className="flex flex-col text-4xl">
@@ -85,6 +81,7 @@ export const LandingPage = () => {
             linkTo="https://github.com/tayantony"
             personImg="https://avatars.githubusercontent.com/u/98670493?v=4"
           />
+
           <RoundedCard
             fname="Elizeu"
             lname="Magalhães"
@@ -92,6 +89,7 @@ export const LandingPage = () => {
             linkTo="https://github.com/elizeumagalhaes"
             personImg="https://avatars.githubusercontent.com/u/98928629?v=4"
           />
+
           <RoundedCard
             fname="Igor"
             lname="Oliveira"
@@ -99,6 +97,7 @@ export const LandingPage = () => {
             linkTo="https://github.com/iguoliveira"
             personImg="https://avatars.githubusercontent.com/u/57506257?v=4"
           />
+
           <RoundedCard
             fname="Vinicius"
             lname="Prates"
@@ -106,6 +105,7 @@ export const LandingPage = () => {
             linkTo="https://github.com/vinicius-prates"
             personImg="https://avatars.githubusercontent.com/u/89698942?v=4"
           />
+
           <RoundedCard
             fname="Viktor"
             lname="Marinho"
@@ -118,8 +118,7 @@ export const LandingPage = () => {
 
       <div className="flex flex-col items-center justify-center text-center gap-10 py-24" id="contact">
         <div className="flex flex-col gap-4">
-          <div className="text-4xl font-semibold"><span className="bg-clip-text text-transparent bg-gradient-to-t
-           from-red-600 to-red-300 font-semibold select-none">CONTACT</span> US</div>
+          <div className="text-4xl font-semibold"><span className="red-gradient-text">CONTACT</span> US</div>
           <p className="text-3xl">Something wrong? Contact us.</p>
         </div>
         <div className="flex space-x-40">

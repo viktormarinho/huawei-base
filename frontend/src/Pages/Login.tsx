@@ -26,7 +26,7 @@ export const Login = () => {
 
     return (
         <section className="h-screen flex flex-col justify-center items-center gap-14">
-            <img src={Logo} />
+            <a href="/"><img src={Logo} /></a>
             <form className="w-[40em] flex flex-col gap-10 items-center justify-center">
                 <div className="flex flex-col gap-5">
                     <Input id={"email"} name={"email"} type={"email"} isError={false} placeholder={"Email"} value={input.email} onChange={(evt: any) => handleChange(evt)} />
