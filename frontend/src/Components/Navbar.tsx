@@ -16,7 +16,7 @@ interface NavBarProps {
 export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, isFixed = true, isProduct = false, isAbsolute = true }: NavBarProps) => {
   return (
     <nav
-      className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
+      className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg h-[10vh]
         focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30 ${isAbsolute && ("absolute top-0")}`}
     >
       <div>

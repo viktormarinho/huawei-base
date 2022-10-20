@@ -19,8 +19,8 @@ export const AdminPanel = () => {
     const panelOptions: Array<JSX.Element> = [<DataBase />, <Storage />, <Functions />];
 
     return (
-        <div className="h-[75vh]">
-            <Navbar isAdmin={true} isFixed={false} >
+        <div >
+            <Navbar isAdmin={true} isFixed={false} isAbsolute={false} >
                 {<Button text="Your Projects" isAdmin={true} />}
             </Navbar>
 
