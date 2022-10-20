@@ -5,17 +5,19 @@ interface NavBarProps {
   children?: JSX.Element;
   isAdmin?: boolean;
   isFixed?: boolean
+  home?: string
   about?: string
   devs?: string
   contact?: string
   isProduct?: boolean
+  isAbsolute?: boolean
 }
 
-export const Navbar = ({ about, devs, contact, children, isAdmin = false, isFixed = true, isProduct = false }: NavBarProps) => {
+export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, isFixed = true, isProduct = false, isAbsolute = true }: NavBarProps) => {
   return (
     <nav
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
-        focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30 absolute top-0`}
+        focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30 ${isAbsolute && ("absolute top-0")}`}
     >
       <div>
         <a href="/">
@@ -31,16 +33,21 @@ export const Navbar = ({ about, devs, contact, children, isAdmin = false, isFixe
         <div className="flex flex-row gap-24">
           {
             !isProduct
-            &&
-            (
-              <>
-                <a href={about} className="cursor-pointer">About</a>
-                <a href={devs} className="cursor-pointer">Developers</a>
-                <a href={contact} className="cursor-pointer">Contact</a>
-              </>
-            )
+              ?
+              (
+                <>
+                  <a href={home} className="cursor-pointer">Home</a>
+                  <a href={about} className="cursor-pointer">About</a>
+                  <a href={devs} className="cursor-pointer">Developers</a>
+                  <a href={contact} className="cursor-pointer">Contact</a>
+                </>
+              )
+              :
+              (
+                <Link to={"/"}>Home</Link>
+              )
           }
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/login"}>Live Demo</Link>
         </div>
       )}
     </nav>

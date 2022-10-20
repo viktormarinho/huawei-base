@@ -10,9 +10,9 @@ import { DocButton } from "../components/DocButton";
 export const LandingPage = () => {
   return (
     <section>
-      <Navbar isAdmin={false} about={"#about"} devs={"#devs"} contact={"#contact"} />
+      <Navbar isAdmin={false} isAbsolute={false} home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
 
-      <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2">
+      <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2" id="home">
         <h1 className="text-6xl text-center  select-none">
           <div>
             <span className="red-gradient-text">
