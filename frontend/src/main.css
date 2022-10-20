@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+::selection {
+  background-color: #f66666;
+}
+
+@layer components {
+  .red-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-t from-red-600 to-red-300 font-bold select-none;
+  }
+
+  .navbar-links {
+    @apply cursor-pointer relative hover:text-red-600 after:bottom-line-animation;
+  }
+
+  .bottom-line-animation {
+    content: "";
+    position: absolute;
+    background-color: #dc2626;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+  }
+
+  .bottom-line-animation:hover:after {
+    width: 100%;
+  }
+
+  .button-gradient-animation {
+    width: 200px;
+    background-image: linear-gradient(
+      to right,
+      #dc2626,
+      #f15e64,
+      #e14e53,
+      #e2373f
+    );
+    box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+    background-size: 300% 100%;
+    moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .button-gradient-animation:hover {
+    background-position: 100% 0;
+    moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .button-gradient-animation:focus {
+    outline: none;
+  }
+}
