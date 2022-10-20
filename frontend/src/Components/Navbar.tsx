@@ -10,7 +10,7 @@ interface NavBarProps {
   contact?: string
 }
 
-export const Navbar = ({ about, devs, contact, children, isAdmin=true, isFixed=true }: NavBarProps) => {
+export const Navbar = ({ about, devs, contact, children, isAdmin = true, isFixed = true }: NavBarProps) => {
   return (
     <nav
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 

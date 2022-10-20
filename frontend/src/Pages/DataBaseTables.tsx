@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { DataBase } from "../components/panel/DataBase"
+import { DataBase } from "../Components/panel/DataBase"
 import { Functions } from "../components/panel/Functions"
 import { Storage } from "../components/panel/Storage"
 import { Navbar } from "../components/Navbar"
