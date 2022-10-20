@@ -1,14 +1,14 @@
 {
-  "name": "sdk",
-  "version": "1.0.0",
-  "description": "",
+  "name": "huaweibase",
+  "version": "1.0.1",
+  "description": "The Official HuaweiBase SDK",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "tsdev": "npx tsc --watch"
   },
   "keywords": [],
-  "author": "iguoliveira",
+  "author": "viktormarinho",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.8.4"
