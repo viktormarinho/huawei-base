@@ -2,18 +2,18 @@
   "name": "sdk",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap"
+    "tsdev": "npx tsc --watch"
   },
   "keywords": [],
   "author": "iguoliveira",
   "license": "ISC",
   "devDependencies": {
-    "microbundle": "^0.15.1"
+    "typescript": "^4.8.4"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0",
-    "typescript": "^4.8.4"
+    "axios": "^1.1.3"
   }
 }
