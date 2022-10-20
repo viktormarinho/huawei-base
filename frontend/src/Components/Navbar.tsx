@@ -44,7 +44,7 @@ export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, 
               )
               :
               (
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"} className="navbar-links">Home</Link>
               )
           }
           <Link to={"/login"} className="border-2 border-black rounded-2xl py-1 px-6 hover:bg-black hover:text-white transition-all ease-linear">Live Demo</Link>
