@@ -1,4 +1,6 @@
 import HuaweiBaseLogo from "../assets/LOGO 1.png";
+import { Link } from 'react-router-dom'
+
 interface NavBarProps {
   children?: JSX.Element;
   isAdmin: boolean;
@@ -28,7 +30,7 @@ export const Navbar = ({ about, devs, contact, children, isAdmin }: NavBarProps)
           <a href={about} className="cursor-pointer">About</a>
           <a href={devs} className="cursor-pointer">Developers</a>
           <a href={contact} className="cursor-pointer">Contact</a>
-          <a>Login</a>
+          <Link to={"/login"}>Login</Link>
         </div>
       )}
     </div>
