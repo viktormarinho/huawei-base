@@ -2,9 +2,24 @@ import { MatchQuery, TableOptions, TableParams, TablePatchType } from '../../typ
 import { Db } from './../config';
 import express from 'express';
 import { resolveBackticks, toSqlValues } from '../utils/sqlParsing';
-import { withRowList } from '../utils/rowListCallback';
+import { withColumnList } from '../utils/columnListCallback';
 
 const router = express.Router();
+
+router.get('/admin/get-tables', (req, res) => {
+    Db.serialize(() => {
+        Db.all(
+            `SELECT * FROM __tables`,
+            function (error, tables) {
+                if (error) {
+                    return res.json({ error, msg: error.message })
+                }
+
+                res.json({ tables: tables.map(t => ({ name: t.name, columns: [{ name: 'id', type: 'number' }, ...JSON.parse(t.columns)] })) })
+            }
+        )
+    })
+})
 
 router.post('/admin/create-table', (req, res) => {
     const { name, fields }: TableOptions = req.body;
@@ -24,7 +39,7 @@ router.post('/admin/create-table', (req, res) => {
                 res.json({ msg: "Created table successfully. " });
             }
         ).run(
-            `INSERT INTO __tables (name, rowlist) VALUES ('${name}', '${JSON.stringify(fields.map(f => f.name))}')`,
+            `INSERT INTO __tables (name, columns) VALUES ('${name}', '${JSON.stringify(fields)}')`,
             function (error) {
                 if (error) {
                     console.log({ error, msg: error.message })
@@ -105,10 +120,10 @@ router.post('/insert-table/:table', (req, res) => {
     const { table }: TableParams = req.params;
     const insertRow = req.body;
 
-    withRowList(table, res, (rowlist) => {
+    withColumnList(table, res, (colList) => {
         for (const col in insertRow) {
-            if (!rowlist.includes(col)) {
-                return res.json({ error: 'Column not existent', msg: `Column ${col} does not exist on table ${table}. Existing columns: ${rowlist}` })
+            if (!colList.map(c => c.name).includes(col)) {
+                return res.json({ error: 'Column not existent', msg: `Column ${col} does not exist on table ${table}. Existing columns: ${colList.map(c => c.name)}` })
             }
         }
         const { columns, sqlValues } = toSqlValues(insertRow)
@@ -132,10 +147,10 @@ router.patch('/update-table/:table', (req, res) => {
     const { table }: TableParams = req.params;
     const { updateData, matchQuery }: TablePatchType = req.body;
 
-    withRowList(table, res, (rowlist) => {
+    withColumnList(table, res, (columns) => {
         for (const key in updateData) {
-            if (!rowlist.includes(key) && key !== 'id') {
-                return res.json({ error: 'Column not existent', msg: `Column ${key} does not exist on table ${table}. Existing columns: ${rowlist}` })
+            if (!columns.map(c => c.name).includes(key) && key !== 'id') {
+                return res.json({ error: 'Column not existent', msg: `Column ${key} does not exist on table ${table}. Existing columns: ${columns.map(c => c.name)}` })
             }
         }
 
@@ -179,9 +194,9 @@ router.delete('/delete-table/:table', (req, res) => {
     const { table }: TableParams = req.params;
     const { column, value }: MatchQuery = req.body;
 
-    withRowList(table, res, (rowlist) => {
-        if (!rowlist.includes(column) && column !== 'id') {
-            return res.json({ error: 'Column not existent', msg: `Column ${column} does not exist on table ${table}. Existing columns: ${rowlist}` })
+    withColumnList(table, res, (columns) => {
+        if (!columns.map(c => c.name).includes(column) && column !== 'id') {
+            return res.json({ error: 'Column not existent', msg: `Column ${column} does not exist on table ${table}. Existing columns: ${columns.map(c => c.name)}` })
         }
 
         Db.serialize(() => {
