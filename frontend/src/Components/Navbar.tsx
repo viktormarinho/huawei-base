@@ -30,7 +30,7 @@ export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, 
           {children}
         </div>
       ) : (
-        <div className="flex flex-row gap-24">
+        <div className="flex flex-row items-center gap-24">
           {
             !isProduct
               ?
@@ -47,7 +47,7 @@ export const Navbar = ({ about, devs, contact, home, children, isAdmin = false, 
                 <Link to={"/"}>Home</Link>
               )
           }
-          <Link to={"/login"}>Live Demo</Link>
+          <Link to={"/login"} className="border-2 border-black rounded-2xl py-1 px-6 hover:bg-black hover:text-white transition-all ease-linear">Live Demo</Link>
         </div>
       )}
     </nav>

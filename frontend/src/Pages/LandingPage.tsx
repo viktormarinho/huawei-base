@@ -6,8 +6,11 @@ import { Button } from "../components/Button";
 import { LandingForm } from "../components/landingPage/LandingForm";
 import { Footer } from "../components/Footer";
 import { DocButton } from "../components/DocButton";
+import { useNavigate } from "react-router-dom";
 
 export const LandingPage = () => {
+  const navigate = useNavigate()
+
   return (
     <section>
       <Navbar isAdmin={false} isAbsolute={false} home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
@@ -44,7 +47,7 @@ export const LandingPage = () => {
             </svg>
           </Function>
         </div>
-        <Button text={'LIVE DEMO'} isAdmin={false} />
+        <Button text={'LIVE DEMO'} isAdmin={false} onClick={(evt: any) => navigate("/login")} />
       </div>
 
       <div className="flex flex-row justify-around px-40 gap-20 border-b-2" id="about">
