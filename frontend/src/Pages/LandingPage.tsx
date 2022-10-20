@@ -1,9 +1,9 @@
 import tableImage from "../assets/tablet_image.png";
 import { RoundedCard } from "../components/RoundedCard";
 import { Navbar } from "../components/Navbar";
-import { Function } from "../components/landingPage/Functions";
+import { FeatureList } from "../components/landingPageComponents/FeatureList";
 import { Button } from "../components/Button";
-import { LandingForm } from "../components/landingPage/LandingForm";
+import { LandingForm } from "../components/landingPageComponents/LandingForm";
 import { Footer } from "../components/Footer";
 
 export const LandingPage = () => {
@@ -22,11 +22,11 @@ export const LandingPage = () => {
           <span>to do backend.</span>
         </h1>
         <div className="flex flex-row gap-24 text-xl bg-[#EBEBEB] p-2 rounded-xl px-12">
-          <Function name="Database" />
-          <Function name="Cloud Functions" />
-          <Function name="Storage" />
+          <FeatureList name="Database" />
+          <FeatureList name="Cloud Functions" />
+          <FeatureList name="Storage" />
         </div>
-        <Button text={'START NOW'} isAdmin={false} />
+        <Button text={'LIVE DEMO'} isAdmin={false} />
       </div>
 
       <div className="flex flex-row justify-around px-40 gap-20 border-b-2" id="about">
@@ -39,7 +39,7 @@ export const LandingPage = () => {
             Huawei Base is a provisioned backend service that makes it easy to
             build applications through one interface.
           </p>
-          <Button text={"Start Project"} isAdmin={false} />
+          <Button text={"Read the documentation"} isAdmin={false} />
         </div>
         <div>
           <img src={tableImage} />

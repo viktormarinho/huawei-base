@@ -1,10 +1,10 @@
 import checkIcon from "../../assets/checkIcon.png";
 
-interface FunctionProps {
+interface FeatureListProps {
     name: string
 }
 
-export const Function = ({ name }: FunctionProps) => {
+export const FeatureList = ({ name }: FeatureListProps) => {
     return (
         <div className="flex gap-1 items-center">
             <img src={checkIcon} className=" h-4" />
