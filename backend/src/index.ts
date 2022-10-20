@@ -17,7 +17,7 @@ Db.serialize(() => {
     Db.run(
         `CREATE TABLE IF NOT EXISTS __tables (
             name TEXT,
-            rowlist TEXT
+            columns TEXT
         )`
     )
 })

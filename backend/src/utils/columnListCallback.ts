@@ -1,7 +1,8 @@
 import { Db } from "../config"
 import { Response } from "express"
+import { Column } from "../../types/Tables"
 
-export const withRowList = (table: string, res: Response, cb: (rowlist: string[]) => any) => {
+export const withColumnList = (table: string, res: Response, cb: (columns: Column[]) => any) => {
     Db.serialize(() => {
         Db.get(
             `SELECT * FROM __tables WHERE name = '${table}';`,
@@ -10,9 +11,9 @@ export const withRowList = (table: string, res: Response, cb: (rowlist: string[]
                     return res.json({ error, msg: error.message })
                 }
 
-                const rowlist: string[] = JSON.parse(row.rowlist);
+                const columns: Column[] = JSON.parse(row.rowlist);
 
-                cb(rowlist);
+                cb(columns);
             }
         )
     })

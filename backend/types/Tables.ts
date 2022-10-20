@@ -5,6 +5,11 @@ export type Field = {
 
 }
 
+export type Column = {
+    name: string
+    type: string
+}
+
 export type TableOptions = {
     name: string
     fields: Field[]
