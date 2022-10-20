@@ -1,14 +1,21 @@
-import checkIcon from "../../assets/checkIcon.png";
+import { Link } from "react-router-dom"
 
 interface FeatureListProps {
     name: string
+    children: JSX.Element
+    link: string
 }
 
-export const FeatureList = ({ name }: FeatureListProps) => {
+export const FeatureList = ({ name, link, children }: FeatureListProps) => {
     return (
-        <div className="flex gap-1 items-center">
-            <img src={checkIcon} className=" h-4" />
-            <p>{name}</p>
-        </div>
+        <Link to={link}>
+            <div className="flex flex-col justify-center items-start gap-1 bg-[#EBEBEB] w-80 py-5 px-8 rounded-3xl space-y-6 hover:scale-110 hover:opacity-80 hover:shadow-xl transition-all">
+                <div className="flex items-center space-x-5">
+                    {children}
+                    <span className="text-[20px]">{name}</span>
+                </div>
+                <span className="text-[22px]">Learn More {">"}</span>
+            </div>
+        </Link>
     )
 }

@@ -15,7 +15,7 @@ export const RoundedCard = ({ linkTo, personImg, fname, lname, role }: CardProps
                         <span>{fname}</span>
                         <span>{lname}</span>
                     </div>
-                    <span className="text-md text-[#FF0000]">{role}</span>
+                    <span className="text-md text-red-600">{role}</span>
                 </div>
             </a>
         </div>
