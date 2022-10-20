@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Table } from "../panel/DataBase";
 import Modal  from 'react-modal';
 import { Input } from "../form/Input";
-import { FieldComponent } from "./FieldComponent";
+import { FieldComponent } from "./NewColumn";
 
 
 Modal.setAppElement('#root')
