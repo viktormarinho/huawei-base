@@ -111,9 +111,11 @@ router.post('/insert-table/:table', (req, res) => {
                 return res.json({ error: 'Column not existent', msg: `Column ${col} does not exist on table ${table}. Existing columns: ${rowlist}` })
             }
         }
+        const { columns, sqlValues } = toSqlValues(insertRow)
+
         Db.serialize(() => {
             Db.run(
-                `INSERT INTO ${table} (${rowlist.map(r => `${r},`).join('').slice(0, -1)}) VALUES (${toSqlValues(insertRow)})`,
+                `INSERT INTO ${table} (${columns}) VALUES (${sqlValues})`,
                 function (error) {
                     if (error) {
                         return res.json({ error, msg: error.message })
