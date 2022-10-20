@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom'
 
 interface NavBarProps {
   children?: JSX.Element;
-  isAdmin: boolean;
+  isAdmin?: boolean;
+  isFixed?: boolean
   about?: string
   devs?: string
   contact?: string
 }
 
-export const Navbar = ({ about, devs, contact, children, isAdmin }: NavBarProps) => {
+export const Navbar = ({ about, devs, contact, children, isAdmin=true, isFixed=true }: NavBarProps) => {
   return (
-    <div
+    <nav
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
-        focus:outline-none ${isAdmin ? '' : 'fixed'} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30`}
+        focus:outline-none ${isFixed ? 'fixed' : ''} border-b-2 w-full bg-opacity-70 backdrop-blur-lg bg-white/30`}
     >
       <div>
         <a href="/">
@@ -33,6 +34,6 @@ export const Navbar = ({ about, devs, contact, children, isAdmin }: NavBarProps)
           <Link to={"/login"}>Login</Link>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
