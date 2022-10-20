@@ -8,9 +8,10 @@ interface NavBarProps {
   about?: string
   devs?: string
   contact?: string
+  isProduct?: boolean
 }
 
-export const Navbar = ({ about, devs, contact, children, isAdmin = true, isFixed = true }: NavBarProps) => {
+export const Navbar = ({ about, devs, contact, children, isAdmin = false, isFixed = true, isProduct = false }: NavBarProps) => {
   return (
     <nav
       className={`bg-[whitesmoke] flex flex-row justify-between px-48 py-2 items-center font-bold text-lg 
@@ -23,14 +24,22 @@ export const Navbar = ({ about, devs, contact, children, isAdmin = true, isFixed
       </div>
 
       {isAdmin ? (
-        <div className="flex align-end justify-center items-center ">
+        <div className="flex align-end justify-center items-center">
           {children}
         </div>
       ) : (
         <div className="flex flex-row gap-24">
-          <a href={about} className="cursor-pointer">About</a>
-          <a href={devs} className="cursor-pointer">Developers</a>
-          <a href={contact} className="cursor-pointer">Contact</a>
+          {
+            !isProduct
+            &&
+            (
+              <>
+                <a href={about} className="cursor-pointer">About</a>
+                <a href={devs} className="cursor-pointer">Developers</a>
+                <a href={contact} className="cursor-pointer">Contact</a>
+              </>
+            )
+          }
           <Link to={"/login"}>Login</Link>
         </div>
       )}
