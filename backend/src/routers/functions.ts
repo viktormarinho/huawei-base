@@ -2,6 +2,7 @@ import express from 'express';
 import { CreateFunctionType } from '../../types/Functions';
 import { Db } from '../config';
 import { transpile } from 'typescript';
+import { getHuaweiBase } from 'huaweibase';
 
 const router = express.Router();
 
@@ -42,7 +43,9 @@ router.post('/call-function', (req, res) => {
 
                 const func = eval(row.func);
 
-                func.exec(args).then((data: any) => {
+                const client = getHuaweiBase(req.protocol + '://' + req.get('Host'));
+
+                func.exec({ client, ...args }).then((data: any) => {
                     res.json({ data, msg: 'Executed successfully.' });
                 })
             }
