@@ -21,7 +21,7 @@ know as, Huawei Cloud Container Engine. </p>
 >   CLI: TypeScript
 
 #### Link to view the front-end Design:
-https://www.figma.com/proto/tYG70ptsYxD2eMBEd5Fmif/Huawei-Base?node-id=4%3A76&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A76
+[Mockup](https://www.figma.com/proto/tYG70ptsYxD2eMBEd5Fmif/Huawei-Base?node-id=4%3A76&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A76)
 
 ####
 ![Developers](https://user-images.githubusercontent.com/89698942/197180494-49d0501e-ef25-4742-8b54-32850a501fce.png)
