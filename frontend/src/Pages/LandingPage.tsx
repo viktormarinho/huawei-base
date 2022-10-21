@@ -13,7 +13,7 @@ export const LandingPage = () => {
 
   return (
     <section className="max-w-screen">
-      <Navbar isAdmin={false} isAbsolute={false} home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
+      <Navbar isAdmin={false} isAbsolute={false}  home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
 
       <div className="h-[98vh] items-center flex flex-col md:justify-center md:gap-20 gap-10  md:border-b-2 text-center " id="home">
         <h1 className="text-3xl md:text-6xl mt-12 md:mt-0 md:mx-10 text-center  select-none">
@@ -49,7 +49,7 @@ export const LandingPage = () => {
 
 
         </div>
-        <Button text={'LIVE DEMO'} isAdmin={false} isMobile={true} onClick={(evt: any) => navigate("/login")} />
+        <Button text={'LIVE DEMO'} isAdmin={false} isMobile={false} onClick={(evt: any) => navigate("/login")} />
         <p className="md:hidden text-gray-500 text-xl italic ">Sorry, live demo is only active to desktops!</p>
 
       </div>

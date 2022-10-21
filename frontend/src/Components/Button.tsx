@@ -21,7 +21,7 @@ export const Button = ({
           ? `bg-[${
               isDefault ? "#242424" : "whitesmoke"
             }] text-[#242424] text-xl rounded-lg px-2 h-[2.4rem] border-2 border-gray-900 w-40 hover:bg-[#242424] hover:text-white transition-all `
-          : `text-2xl font-bold text-white select-none rounded-2xl p-4 ${
+          : `text-2xl font-bold text-white select-none rounded-2xl p-4 md:flex hidden md:justify-center ${
               isMobile
                 ? "bg-gradient-to-r from-gray-400 to-gray-800"
                 : "button-gradient-animation"
