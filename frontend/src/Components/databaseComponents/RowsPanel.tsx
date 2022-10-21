@@ -23,6 +23,15 @@ function createObjectModel(columns: Field[]) {
 }
 
 export const RowsPanel = ({ table }: RowsPanelProps) => {
+
+    if (!table) {
+        return (
+            <div className="flex items-center justify-center w-full h-full">
+                <h1>Start by selecting a table!</h1>
+            </div>
+        )
+    }
+
     const name = table?.name;
     const queryClient = useQueryClient();
     const { data, isLoading, error } = useQuery(['getRows', name], fetchTableRows);
