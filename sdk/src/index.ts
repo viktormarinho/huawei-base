@@ -9,15 +9,15 @@ class HuaweiBaseClient {
         this.url = url
     }
 
-    protected async invoke(endpoint: string, body?: any, method?: string): Promise<any> {
+    protected async invoke(endpoint: string, body?: any, method?: string, headers?: any): Promise<any> {
         const url = `${this.url}${endpoint}`
 
-        const headers = {
+        const defaultHeaders = {
             "Content-Type": "application/json",
         }
 
         const config = {
-            headers: headers,
+            headers: headers || defaultHeaders,
             method: method || "GET",
             data: body || {},
             url: url
@@ -30,6 +30,14 @@ class HuaweiBaseClient {
 
     table<T>(name: string) {
         return new TableMethods<T>(name, this.url)
+    }
+
+    storage() {
+        return new StorageMethods(this.url);
+    }
+
+    function(name: string) {
+        return new FunctionsMethods(name, this.url);
     }
 }
 
@@ -96,6 +104,43 @@ class TableMethods<T> extends HuaweiBaseClient {
 
         if (response.error) {
             throw new Error(response.msg)
+        }
+
+        return response
+    }
+}
+
+class StorageMethods extends HuaweiBaseClient {
+
+    constructor(url: string) {
+        super(url);
+    }
+
+    async upload(file: File) {
+        const formData = new FormData();
+        formData.append('upload', file);
+        const response = await this.invoke('/storage/upload', formData, 'POST', { "Content-Type": "multipart/form-data" })
+
+        if (response.error) {
+            throw new Error(response.msg);
+        }
+
+        return response
+    }
+}
+
+class FunctionsMethods extends HuaweiBaseClient {
+    private name: string;
+    constructor(name: string, url: string) {
+        super(url);
+        this.name = name;
+    }
+
+    async call(args: any) {
+        const response = await this.invoke('/functions/call-function', { name: this.name, args: args }, 'POST');
+
+        if (response.error) {
+            throw new Error(response.msg);
         }
 
         return response
