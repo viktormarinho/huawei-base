@@ -6,6 +6,21 @@ import { getHuaweiBase } from 'huaweibase';
 
 const router = express.Router();
 
+router.get('/admin/get-functions', (req, res) => {
+    Db.serialize(() => {
+        Db.all(
+            `SELECT * FROM __functions`,
+            function (error, rows) {
+                if (error) {
+                    return res.status(500).json({ error, msg: error.message })
+                }
+
+                res.json({ functions: rows })
+            }
+        )
+    })
+})
+
 router.post('/create-function', (req, res) => {
     const { funcText, name }: CreateFunctionType = req.body;
     const transpiledFunc = transpile(`({ exec: ${funcText} })`);

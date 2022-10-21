@@ -26,6 +26,14 @@ Db.serialize(() => {
 
 Db.serialize(() => {
     Db.run(
+        `CREATE TABLE IF NOT EXISTS __storage (
+            filepath TEXT
+        )`
+    )
+})
+
+Db.serialize(() => {
+    Db.run(
         `CREATE TABLE IF NOT EXISTS __functions (
             name TEXT,
             func TEXT
