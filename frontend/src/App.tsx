@@ -34,7 +34,7 @@ export const Router = createBrowserRouter([
     children: [
       {
         path: "database",
-        element: <Product productImage={DatabaseImage} service={"Database"} serviceTitle={"Open source SQL"} serviceText={"Huawei Base Database is a cloud-hosted database. Data is stored as JSON and synced in real-time for each connected client."} />
+        element: <Product productImage={DatabaseImage} service={"Database"} serviceTitle={"Open source SQL"} serviceText={"Huawei Base Database is a cloud-hosted database. Data is stored in tables that can be visualized in the admin panel or accessed anywhere via our SDK."} />
       },
       {
         path: "cloud-function",

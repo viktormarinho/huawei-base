@@ -72,7 +72,7 @@ export const LandingPage = () => {
           developers
         </h1>
         <div className="flex flex-col text-4xl">
-          <span>We are systems development students at</span>
+          <span>We are students of systems development technician at</span>
           <span>SENAI Roberto Mange school and technology college.</span>
         </div>
 

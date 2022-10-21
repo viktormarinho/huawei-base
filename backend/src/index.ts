@@ -4,11 +4,13 @@ import { Db } from './config';
 import tablesRouter from './routers/tables';
 import storageRouter from './routers/storage';
 import functionsRouter from './routers/functions';
+import cors from 'cors';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 app.use('/tables', tablesRouter);
 app.use('/storage', storageRouter);
 app.use('/functions', functionsRouter);

@@ -15,7 +15,7 @@ know as, Huawei Cloud Container Engine. </p>
 
 ####  The project structure:
 
->   Front-end: React + Vite + TypeScript <br>
+>   Front-end: React + Vite + TypeScript + Tailwind CSS<br>
 >   Back-end: NodeJS + Express + TypeScript <br>
 >   SDK: TypeScript <br>
 >   CLI: TypeScript
