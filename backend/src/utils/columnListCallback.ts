@@ -11,7 +11,7 @@ export const withColumnList = (table: string, res: Response, cb: (columns: Colum
                     return res.json({ error, msg: error.message })
                 }
 
-                const columns: Column[] = JSON.parse(row.rowlist);
+                const columns: Column[] = JSON.parse(row.columns);
 
                 cb(columns);
             }
