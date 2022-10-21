@@ -12,20 +12,20 @@ export const LandingPage = () => {
   const navigate = useNavigate()
 
   return (
-    <section>
-      <Navbar isAdmin={false} isAbsolute={false} home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
+    <section className="max-w-screen">
+      <Navbar isAdmin={false} isAbsolute={false}  home={"#home"} about={"#about"} devs={"#devs"} contact={"#contact"} />
 
-      <div className="h-[98vh] items-center flex flex-col justify-center gap-20 border-b-2" id="home">
-        <h1 className="text-6xl text-center  select-none">
+      <div className="h-[98vh] items-center flex flex-col md:justify-center md:gap-20 gap-10  md:border-b-2 text-center " id="home">
+        <h1 className="text-3xl md:text-6xl mt-12 md:mt-0 md:mx-10 text-center  select-none">
           <div>
-            <span className="red-gradient-text">
+            <span className="red-gradient-text">  
               Huawei Base
             </span>
             <span>, the new way</span>
           </div>
           <span>to do backend.</span>
         </h1>
-        <div className="flex space-x-10">
+        <div className="flex flex-col md:flex-row gap-10 md:space-x-10">
           <FeatureList name="Database" link={"/products/database"}>
             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="60" height="60" rx="30" fill="#FF0000" />
@@ -46,12 +46,16 @@ export const LandingPage = () => {
               <path d="M16.875 40.7616C16.875 41.6565 17.7129 42.3794 18.75 42.3794H41.25C42.2871 42.3794 43.125 41.6565 43.125 40.7616V26.2013H16.875V40.7616ZM26.25 30.0436C26.25 29.71 26.5664 29.437 26.9531 29.437H33.0469C33.4336 29.437 33.75 29.71 33.75 30.0436V30.4481C33.75 30.7818 33.4336 31.0548 33.0469 31.0548H26.9531C26.5664 31.0548 26.25 30.7818 26.25 30.4481V30.0436ZM43.125 19.7301H16.875C15.8379 19.7301 15 20.4531 15 21.3479V23.7746C15 24.2195 15.4219 24.5835 15.9375 24.5835H44.0625C44.5781 24.5835 45 24.2195 45 23.7746V21.3479C45 20.4531 44.1621 19.7301 43.125 19.7301Z" fill="white" />
             </svg>
           </FeatureList>
+
+
         </div>
-        <Button text={'LIVE DEMO'} isAdmin={false} onClick={(evt: any) => navigate("/login")} />
+        <Button text={'LIVE DEMO'} isAdmin={false} isMobile={false} onClick={(evt: any) => navigate("/login")} />
+        <p className="md:hidden text-gray-500 text-xl italic ">Sorry, live demo is only active to desktops!</p>
+
       </div>
 
-      <div className="flex flex-row justify-around px-40 gap-20 border-b-2" id="about">
-        <div className="flex flex-col gap-8 justify-center w-[30rem] ">
+      <div className=" mt-40 flex  flex-col px-8 justify-center md:flex-row md:justify-around md:px-40 gap-20 md:border-b-2" id="about">
+        <div className="flex flex-col gap-8 justify-center w-[20rem] md:w-[30rem] ">
           <div className="text-3xl flex items-center font-semibold gap-[8px]">
             <span className="text-4xl red-gradient-text">
               ABOUT
@@ -62,7 +66,7 @@ export const LandingPage = () => {
           </p>
           <DocButton />
         </div>
-        <div>
+      <div className="hidden md:flex ">
           <img src={tableImage} />
         </div>
       </div>
@@ -71,12 +75,12 @@ export const LandingPage = () => {
         <h1 className="uppercase text-4xl red-gradient-text">
           developers
         </h1>
-        <div className="flex flex-col text-4xl">
+        <div className="flex flex-col text-2xl md:text-4xl">
           <span>We are systems development students at</span>
           <span>SENAI Roberto Mange school and technology college.</span>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <RoundedCard
             fname="Tayssa"
             lname="Antoniasse"
@@ -124,25 +128,25 @@ export const LandingPage = () => {
           <div className="text-4xl font-semibold"><span className="red-gradient-text">CONTACT</span> US</div>
           <p className="text-3xl">Something wrong? Contact us.</p>
         </div>
-        <div className="flex space-x-40">
-          <div className="flex flex-col flex-wrap justify-center space-y-10">
+        <div className="flex flex-col md:flex-row md:space-x-40">
+          <div className="flex flex-col flex-wrap gap-4 m-4 justify-center md:space-y-10">
 
-            <div className="flex space-x-8 items-center justify-start">
-              <svg width="52" height="39" viewBox="0 0 52 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="flex space-x-8 items-center justify-start ">
+              <svg className="w-8 h-6 md:w-12 md:h-10" viewBox="0 0 52 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M51.0148 12.8781C51.4109 12.5633 52 12.8578 52 13.3555V34.125C52 36.8164 49.8164 39 47.125 39H4.875C2.18359 39 0 36.8164 0 34.125V13.3656C0 12.8578 0.578906 12.5734 0.985156 12.8883C3.26016 14.6555 6.27656 16.9 16.6359 24.4258C18.7789 25.9898 22.3945 29.2805 26 29.2602C29.6258 29.2906 33.3125 25.9289 35.3742 24.4258C45.7336 16.9 48.7398 14.6453 51.0148 12.8781ZM26 26C28.3562 26.0406 31.7484 23.0344 33.4547 21.7953C46.932 12.0148 47.9578 11.1617 51.0656 8.72422C51.6547 8.26719 52 7.55625 52 6.80469V4.875C52 2.18359 49.8164 0 47.125 0H4.875C2.18359 0 0 2.18359 0 4.875V6.80469C0 7.55625 0.345312 8.25703 0.934375 8.72422C4.04219 11.1516 5.06797 12.0148 18.5453 21.7953C20.2516 23.0344 23.6437 26.0406 26 26Z" fill="#FF0000" />
               </svg>
               <span className="flex items-start">huaweibase@email.com</span>
             </div>
 
             <div className="flex space-x-8 items-center justify-start">
-              <svg width="37" height="50" viewBox="0 0 37 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-8 h-6 md:w-12 md:h-10" viewBox="0 0 37 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.5987 48.338C2.59867 28.0421 0 25.9591 0 18.5C0 8.2827 8.2827 0 18.5 0C28.7173 0 37 8.2827 37 18.5C37 25.9591 34.4013 28.0421 20.4013 48.338C19.4825 49.6652 17.5174 49.6651 16.5987 48.338ZM18.5 26.2083C22.7572 26.2083 26.2083 22.7572 26.2083 18.5C26.2083 14.2428 22.7572 10.7917 18.5 10.7917C14.2428 10.7917 10.7917 14.2428 10.7917 18.5C10.7917 22.7572 14.2428 26.2083 18.5 26.2083Z" fill="#FF0000" />
               </svg>
               <div className="flex flex-col justify-center items-start text-start"><span>Rua Pastor Cicero Canuto de Lima, 71,</span><span>São Bernardo - Vila Rialto, Campinas</span><span>- SP, 13036-210</span></div>
             </div>
 
             <div className="flex space-x-8 items-center justify-start">
-              <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-8 h-6 md:w-12 md:h-10" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M49.5456 36.0384L38.3891 31.2571C37.9125 31.054 37.3829 31.0112 36.8798 31.1351C36.3768 31.2591 35.9277 31.5431 35.6 31.9444L30.6593 37.9808C22.9053 34.3249 16.6651 28.0847 13.0092 20.3307L19.0457 15.39C19.4478 15.063 19.7324 14.6138 19.8564 14.1106C19.9804 13.6073 19.9371 13.0773 19.733 12.6009L14.9516 1.44445C14.7276 0.930868 14.3314 0.511542 13.8314 0.258782C13.3313 0.00602164 12.7587 -0.0643293 12.2123 0.0598596L1.85277 2.45053C1.32599 2.57217 0.856003 2.86877 0.519507 3.29193C0.183011 3.71508 -0.000121347 4.23979 6.03266e-08 4.78043C6.03266e-08 30.3307 20.7092 51 46.2196 51C46.7604 51.0003 47.2853 50.8173 47.7087 50.4808C48.132 50.1443 48.4288 49.6742 48.5505 49.1472L50.9411 38.7877C51.0645 38.2386 50.9927 37.6638 50.738 37.162C50.4833 36.6602 50.0616 36.2629 49.5456 36.0384Z" fill="#FF0000" />
               </svg>
               <span>{"(19)"} 99999-9999</span>
