@@ -24,12 +24,12 @@ export const AdminPanel = () => {
                 {<Button text="Your Projects" isAdmin={true} />}
             </Navbar>
 
-            <div className="flex flex-row">
+            <div className="flex flex-row w-screen overflow-hidden">
                 <div className="bg-[#2d2d2d] flex flex-col gap-10 px-6 py-10 items-center h-[90vh] border-r-2 border-gray-500">
                     {icons.map(icon => {
                         if (icon.id == currentPanel.id) {
                             return (
-                                
+
                                 <a
                                     onClick={() => setCurrentPanel(icon)}
                                     className="hover:border-gray-500 flex items-center justify-center p-2 cursor-pointer w-10 h-10 rounded hover:transition-all border-2">
@@ -46,7 +46,7 @@ export const AdminPanel = () => {
                         )
                     })}
                 </div>
-                <div>
+                <div className="w-full">
                     {panelOptions[currentPanel.id]}
                 </div>
             </div>
