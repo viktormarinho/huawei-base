@@ -6,6 +6,38 @@ import { getHuaweiBase } from 'huaweibase';
 
 const router = express.Router();
 
+router.get('/admin/get-functions', (req, res) => {
+    Db.serialize(() => {
+        Db.all(
+            `SELECT * FROM __functions`,
+            function (error, rows) {
+                if (error) {
+                    return res.status(500).json({ error, msg: error.message })
+                }
+
+                res.json({ functions: rows })
+            }
+        )
+    })
+})
+
+router.delete('/admin/delete-function', (req, res) => {
+    const { name }: { name: string } = req.body;
+    Db.serialize(() => {
+        Db.run(
+            `DELETE FROM __functions WHERE name = ?;`,
+            name,
+            function (error) {
+                if (error) {
+                    return res.status(400).json({ error, msg: error.message })
+                }
+
+                res.json({ msg: 'Function deleted with success.' })
+            }
+        )
+    })
+})
+
 router.post('/create-function', (req, res) => {
     const { funcText, name }: CreateFunctionType = req.body;
     const transpiledFunc = transpile(`({ exec: ${funcText} })`);
